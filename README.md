@@ -227,60 +227,111 @@ Linux is best in this World
  ```
 egrep -w 'Hello|hello' newfile 
 ## OUTPUT
-
+```
+base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep -w'Hello|hello' newfile
+newfile:hello world
+```
 
 
 egrep -w '(H|h)ello' newfile 
 ## OUTPUT
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep -w'(H|h)ello' newfile
+grep: invalid option -- '('
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+```
 
 
 
 egrep -w '(H|h)ell[a-z]' newfile 
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep -w'(H|h)ell[a-z]'newfile
+grep: invalid option -- '('
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+```
 
 
 
 egrep '(^hello)' newfile 
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep'(^hello)'newfile
+egrep(^hello)newfile: command not found
+```
 
 
 egrep '(world$)' newfile 
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep '(^hello)' newfile
+hello world
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep '(world$)' newfile
+Hello world
+hello world
+```
 
 
 egrep '(World$)' newfile 
 ## OUTPUT
-
+```
+base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep '(World$)' newfile
+Linux is best in this World
+```
 
 egrep '((W|w)orld$)' newfile 
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep '((W|w)orld$)' newfile
+Hello world
+hello world
+Linux is best in this World
+```
 
 
 egrep '[1-9]' newfile 
 ## OUTPUT
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep '[1-9]' newfile
 
+Linux is world number 1
+```
 
 
 egrep 'Linux.*world' newfile 
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep 'Linux.*world' newfile
+Linux is world number 1
+```
 
 egrep 'Linux.*World' newfile 
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep 'Linux.*World' newfile
+Linux is best in this World
+```
 
 egrep l{2} newfile
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep l{2} newfile
+Hello world
+hello world
+```
 
 
 egrep 's{1,2}' newfile
 ## OUTPUT 
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ egrep 's{1,2}' newfile
+Linux is world number 1
+Unix is predecessor
+Linux is best in this World
+```
 
 cat > file23
 ```
@@ -298,76 +349,171 @@ cat > file23
 
 sed -n -e '3p' file23
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ sed -n -e'3p' file23
+1002 | tom |  5000 | Admin
+```
 
 
 sed -n -e '$p' file23
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ sed -n -e'$p' file23
+1001 | Ram | 10000 | HR
+```
 
 
 sed  -e 's/Ram/Sita/' file23
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ sed -e 's/Ram/Sita/' file23
+1001 | Sita | 10000 | HR
+1001 | Sita | 10000 | HR
+1002 | tom |  5000 | Admin
+1003 | Joe |  7000 | Developer
+1005 | Sam |  5000 | HR
+1004 | Sit |  7000 | Dev
+1003 | Joe |  7000 | Developer
+1001 | Sita | 10000 | HR
+```
 
 
 sed  -e '2s/Ram/Sita/' file23
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ sed -e '2s/Ram/Sia/' file23
+1001 | Ram | 10000 | HR
+1001 | Sia | 10000 | HR
+1002 | tom |  5000 | Admin
+1003 | Joe |  7000 | Developer
+1005 | Sam |  5000 | HR
+1004 | Sit |  7000 | Dev
+1003 | Joe |  7000 | Developer
+1001 | Ram | 10000 | HR
+```
 
 
 sed  '/tom/s/5000/6000/' file23
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ sed '/tom/s/5000/6000/' file23
+1001 | Ram | 10000 | HR
+1001 | Ram | 10000 | HR
+1002 | tom |  6000 | Admin
+1003 | Joe |  7000 | Developer
+1005 | Sam |  5000 | HR
+1004 | Sit |  7000 | Dev
+1003 | Joe |  7000 | Developer
+1001 | Ram | 10000 | HR
+```
 
 
 sed -n -e '1,5p' file23
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ sed -n -e'1,5p' file23
+1001 | Ram | 10000 | HR
+1001 | Ram | 10000 | HR
+1002 | tom |  5000 | Admin
+1003 | Joe |  7000 | Developer
+1005 | Sam |  5000 | HR
+```
 
 
 sed -n -e '2,/Joe/p' file23
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ sed -n -e'2,/Joe/p' file23
+1001 | Ram | 10000 | HR
+1002 | tom |  5000 | Admin
+1003 | Joe |  7000 | Developer
+```
 
 
 
 sed -n -e '/tom/,/Joe/p' file23
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ sed -n -e'/tom/,/Joe/p' file23
+1002 | tom |  5000 | Admin
+1003 | Joe |  7000 | Developer
+```
 
 
 seq 10 
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ seq 10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
 
 
 seq 10 | sed -n '4,6p'
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ seq 10 | sed -n '4,6p'
+4
+5
+6
+```
 
 
 seq 10 | sed -n '2,~4p'
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ seq 10 | sed -n '2,~4p'
+2
+3
+4
+```
 
 
 seq 3 | sed '2a hello'
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ seq 3 | sed '2a hello'
+1
+2
+hello
+3
+```
 
 
 seq 2 | sed '2i hello'
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ seq 2 | sed '2i hello'
+1
+hello
+2
+```
 
 seq 10 | sed '2,9c hello'
 ## OUTPUT
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ seq 10 | sed '2,9c hello'
+1
+hello
+10
+```
 
 
 sed -n '2,4{s/^/$/;p}' file23
 ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ sed -n '2,4{s/^/$/;p}' file23
+$1001 | Ram | 10000 | HR
+$1002 | tom |  5000 | Admin
+$1003 | Joe |  7000 | Develope
 
 
 sed -n '2,4{s/$/*/;p}' file23
@@ -397,6 +543,15 @@ cat > file22
 ``` 
 uniq file22
 ## OUTPUT
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ uniq file22
+``
+1001 | Ram | 10000 | HR
+1002 | tom |  5000 | Admin
+1003 | Joe |  7000 | Developer
+1005 | Sam |  5000 | HR
+1004 | Sit |  7000 | Dev
+```
 
 
 
@@ -404,7 +559,17 @@ uniq file22
 
 cat file23 | tr [:lower:] [:upper:]
  ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ cat file23 | tr [:lower:] [:upper:]
+1001 | RAM | 10000 | HR
+1001 | RAM | 10000 | HR
+1002 | TOM |  5000 | ADMIN
+1003 | JOE |  7000 | DEVELOPER
+1005 | SAM |  5000 | HR
+1004 | SIT |  7000 | DEV
+1003 | JOE |  7000 | DEVELOPER
+1001 | RAM | 10000 | HR
+```
 cat < urllist.txt
 ```
 www. yahoo. com
@@ -420,18 +585,36 @@ www. mrcet.... com
  ```
 cat urllist.txt | tr -d ' '
  ## OUTPUT
-
+```
+(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ cat urllist.txt | tr -d ' '
+www.yahoo.com
+www.google.com
+www.mrcet....com
+```
 
  
 cat urllist.txt | tr -d ' ' | tr -s '.'
 ## OUTPUT
-
+```(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ cat urllist.txt | tr -d ' ' | tr -s '.'
+www.yahoo.com
+www.google.com
+www.mrcet.com
+```
 
 
 #Backup commands
 tar -cvf backup.tar *
 ## OUTPUT
-
+```(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ tar -cvf backup.tar *
+file1
+file11
+file2
+file21
+file22
+file23
+newfile
+urllist.txt
+```
 
 mkdir backupdir
  
@@ -515,20 +698,27 @@ chmod 777 scriptest.sh
  
 ls file1
 ## OUTPUT
-
+```(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ ls file1
+file1
+```
 echo $?
 ## OUTPUT 
+
 ./one
 bash: ./one: Permission denied
  
 echo $?
 ## OUTPUT 
- 
+ ```(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ echo $?
+0
+```
 abcd
  
 echo $?
  ## OUTPUT
-
+```(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ echo $?
+0
+```
 
  
 # mis-using string comparisons
@@ -560,7 +750,18 @@ echo "$val1 is less than $val2"
 fi
 ```
 ##OUTPUT
-
+```(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ cat strcomp.sh
+bash
+\#!/bin/bash
+val1=baseball
+val2=hockey
+if [ $val1 \> $val2 ]
+then
+echo "$val1 is greater than $val2"
+else
+echo "$val1 is less than $val2"
+fi
+```
 
 
 chmod 755 strcomp.sh
@@ -594,6 +795,16 @@ fi
  ```
 ./psswdperm.sh
 ## OUTPUT
+```(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ cat psswdperm.sh
+bash
+\#!/bin/bash
+if [ -O /etc/passwd ]
+then
+echo “You are the owner of the /etc/passwd file”
+else
+echo “Sorry, you are not the owner of the /etc/passwd file”
+fi
+```
 
 # check if with file location
 cat>ifnested.sh 
@@ -640,7 +851,26 @@ fi
 
 ./ifnested.sh 
 ## OUTPUT
-
+```(base) sec@sec-ThinkPad-E15-Gen-4:~/hasini$ cat ifnested.sh
+bash
+\#!/bin/bash
+if [ -e $HOME ]
+then
+echo “$HOME The object exists, is it a file?”
+if [ -f $HOME ]
+then
+echo “Yes,$HOME it is a file!”
+else
+echo “No,$HOME it is not a file!”
+if [ -f $HOME/.bash_history ]
+then
+echo “But $HOME/.bash_history is a file!”
+fi
+fi
+else
+echo “Sorry, the object does not exist”
+fi
+```
 
 
 # using numeric test comparisons
